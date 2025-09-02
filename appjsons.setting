@@ -1,0 +1,22 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=CureMd;Database=CureMd;User Id=sa;Password=Dotnet@123;TrustServerCertificate=True;"
+  },
+  "Jwt": {
+    "Key": "My_Secret_Key1224771498718748hdsfhd346",
+    "Issuer": "myapp",
+    "Audience": "myusers",
+    "ExpireMinutes": 60
+  }
+}
+
+//Data Source=CMDLHRDB01;Initial Catalog=zohaib_6615;Integrated Security=True;
+  //Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CureMd;Integrated Security=True;
+
