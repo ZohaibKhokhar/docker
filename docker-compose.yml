@@ -1,0 +1,37 @@
+services:
+  CureMd:
+    container_name: CureMd
+    image: custom-sqlserver
+    build:
+      context: .
+      dockerfile: Dockerfile.sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Dotnet@123
+    networks:
+      - Assignment06
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - C:\Users\pc:/var/opt/mssql/backup
+
+  web:
+    container_name: web
+    ports:
+      - "5000:8080"
+    image: ${DOCKER_REGISTRY}-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - CureMd
+    networks:
+      - Assignment06
+
+networks:
+  Assignment06:
+    driver: bridge
+
+volumes:
+  sqlserver_data:
